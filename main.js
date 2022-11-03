@@ -4,12 +4,16 @@ class Contenedor {
     }
 
     save(producto) {
-        let id
-        const apendID = {
-            ...producto,
-            id: this.productos.length + 1
-        }
-        this.productos.push(apendID)
+    
+       let id = 1
+
+        this.productos.map((x)=>{
+            if(x.id >= id){
+                id = x.id + 1
+            }
+        } )
+        producto.id = id
+        this.productos.push(producto)
         return id
     }
     update(id, producto) {
